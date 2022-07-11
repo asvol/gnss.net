@@ -1,4 +1,6 @@
-﻿namespace Asv.Gnss
+﻿using System;
+
+namespace Asv.Gnss
 {
     /// <summary>
     /// Source https://docs.novatel.com/OEM7/Content/Messages/32_Bit_CRC.htm
@@ -41,13 +43,25 @@
             0x6e17, 0x7e36, 0x4e55, 0x5e74, 0x2e93, 0x3eb2, 0x0ed1, 0x1ef0
         };
 
-        public static ushort checksum(byte[] buff, int seedInBytes, int len)
+        public static ushort Calc(byte[] buff, int seedInBytes, int len)
         {
             int i;
             ushort crc = 0;
             for (i = 0; i < len; i++)
             {
                 crc = (ushort)((crc << 8) ^ CRC_16CCIT_LookUp[(crc >> 8) ^ buff[i + seedInBytes]]);
+            }
+
+            return crc;
+        }
+
+        public static ushort Calc(ReadOnlySpan<byte> buff, int len)
+        {
+            int i;
+            ushort crc = 0;
+            for (i = 0; i < len; i++)
+            {
+                crc = (ushort)((crc << 8) ^ CRC_16CCIT_LookUp[(crc >> 8) ^ buff[i]]);
             }
 
             return crc;

@@ -28,7 +28,7 @@ namespace Asv.Gnss
                 strm.Write(TargetId);
                 strm.Write(MessageId);
                 strm.BaseStream.Position = length + 10;
-                var crc = SbfCrc16.checksum(buffer, startIndex, length + 10);
+                var crc = SbfCrc16.Calc(buffer, startIndex, length + 10);
                 strm.Write(crc);
             }
 

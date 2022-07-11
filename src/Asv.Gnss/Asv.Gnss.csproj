@@ -16,4 +16,8 @@
   <ItemGroup>
     <ProjectReference Include="..\..\asv-tools\src\Asv.Tools\Asv.Tools.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Parsers\Asv\Docs\" />
+  </ItemGroup>
 </Project>

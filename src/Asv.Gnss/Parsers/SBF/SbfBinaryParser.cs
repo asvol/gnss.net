@@ -81,7 +81,7 @@ namespace Asv.Gnss
                     _buffer[_bufferIndex++] = data;
                     if (_bufferIndex == _length)
                     {
-                        var calculatedHash = SbfCrc16.checksum(_buffer,4, _length - 4);
+                        var calculatedHash = SbfCrc16.Calc(_buffer,4, _length - 4);
                         if (calculatedHash == _crc)
                         {
                             ParsePacket(_buffer);

@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\asv-tools\src\Asv.Tools.Test\Asv.Tools.Test.csproj" />
     <ProjectReference Include="..\Asv.Gnss\Asv.Gnss.csproj" />
   </ItemGroup>
 
